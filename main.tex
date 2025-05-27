@@ -1,73 +1,72 @@
 \documentclass[a4paper,12pt]{article}
 
-% ------------------- PREÂMBULO -------------------
+% ------------------- PREÂMBULO ---------------------
+% Carrega configurações e pacotes personalizados do arquivo preamble.tex.
+% Edite config/preamble.tex para adicionar/remover pacotes ou comandos globais.
 \input{config/preamble.tex}
 % ---------------------------------------------------
 
 
-%-------------------------------------------------------
-% VOCÊ PODE REORGANIZAR AS SEÇÕES NA ORDEM QUE PREFERIR
-%-------------------------------------------------------
-
+%----------------------------------------------------
+% ORGANIZAÇÃO DAS SEÇÕES
+% Você pode reorganizar, adicionar ou remover seções conforme sua necessidade.
+% Basta comentar ou descomentar as linhas de \input correspondentes.
+%----------------------------------------------------
 
 \begin{document}
 
-%------------------ CONTATOS ------------------
-
-% Verifique se todos os detalhes estão corretos. Você pode adicionar mais links, se necessário.
-
+%--------------------- CONTATOS ---------------------
+% Insira suas informações de contato em sections/contacts.tex.
+% Exemplos: e-mail, telefone, LinkedIn, GitHub, site pessoal, etc.
+% Dica: Use comandos personalizados para ícones ou formatação, se desejar.
+% Adicione/remova linhas conforme necessário para incluir todos os seus canais de contato.
 \input{sections/contacts.tex}
+%----------------------------------------------------
 
-%--------------------------------------------
-
-
-%------------------- PERFIL ------------------
-
-% Seja breve, simples e direto ao ponto.
-
+%----------------------- PERFIL ---------------------
+% Resuma seu perfil profissional em sections/profile.tex.
+% Seja breve, simples e direto ao ponto (2-4 linhas).
+% Foque em suas principais competências, área de atuação e diferenciais.
+% Exemplo: "Engenheiro de Software com 5 anos de experiência em desenvolvimento web, apaixonado por soluções inovadoras e trabalho em equipe."
 \input{sections/profile.tex}
+%----------------------------------------------------
 
-%--------------------------------------------
-
-
-%------------------ HABILIDADES ------------------
-
-% Adicione ou remova resumeSectionTypes de acordo com suas necessidades.
-
+%-------------------- HABILIDADES -------------------
+% Liste suas principais habilidades técnicas e interpessoais em sections/skills.tex.
+% Separe por categorias se desejar (ex: Linguagens, Ferramentas, Soft Skills).
+% Adicione ou remova categorias conforme sua necessidade.
+% Exemplo de categorias: Linguagens de Programação, Frameworks, Idiomas, Ferramentas, etc.
 \input{sections/skills.tex}
+%----------------------------------------------------
 
-%--------------------------------------------
-
-%------------------ EXPERIÊNCIAS ------------------
-
-%  Destile todos os seus pontos de discussão em pequenos tópicos que sigam o padrão “desafio-ação-resultado” para obter o máximo de eficiência. Tente quantificar (usar números) seus pontos sempre que possível e destaque palavras importantes.
-
+%------------------- EXPERIÊNCIAS -------------------
+% Detalhe suas experiências profissionais em sections/experience.tex.
+% Para cada experiência, siga o padrão “desafio-ação-resultado” para cada tópico.
+% Tente quantificar resultados (ex: "Aumentei a performance em 30%").
+% Destaque palavras-chave e tecnologias relevantes.
+% Inclua nome da empresa, cargo, período e principais responsabilidades/resultados.
 \input{sections/experience.tex}
+%----------------------------------------------------
 
-%---------------------------------------------
-
-%------------------ EDUCAÇÃO ------------------
-
-% Mencione sua formação acadêmica
-
+%--------------------- EDUCAÇÃO ---------------------
+% Liste sua formação acadêmica em sections/education.tex.
+% Inclua nome da instituição, curso, período e, se relevante, conquistas acadêmicas.
+% Adicione cursos complementares, intercâmbios ou certificações acadêmicas, se desejar.
 \input{sections/education.tex}
+%----------------------------------------------------
 
-%---------------------------------------------
-
-
-%------------------ PROJETOS ------------------
-
+%--------------------- PROJETOS ---------------------
+% (Opcional) Liste projetos relevantes em sections/projects.tex.
+% Inclua nome do projeto, tecnologias utilizadas, breve descrição e resultados.
+% Para exibir esta seção, descomente a linha abaixo.
 % \input{sections/projects.tex}
+%----------------------------------------------------
 
-%--------------------------------------------
-
-
-%------------------ OUTROS ------------------
-
-% Você pode adicionar suas realizações, elogios, certificações, etc.
-
+%---------------------- OUTROS ----------------------
+% Adicione outras informações relevantes em sections/certifications.tex.
+% Exemplos: certificações, prêmios, publicações, idiomas, voluntariado, etc.
+% Personalize esta seção conforme seu perfil.
 \input{sections/certifications.tex}
-
-%--------------------------------------------
+%----------------------------------------------------
 
 \end{document}
