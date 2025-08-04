@@ -4,7 +4,7 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 
 ## Estrutura do Projeto
 
-```
+```text
 ├── main.tex                # Arquivo principal do documento
 ├── config/
 │   └── preamble.tex        # Configurações e pacotes utilizados
@@ -23,18 +23,25 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 ## Como Usar
 
 1. Certifique-se de ter o LaTeX instalado em sua máquina. Recomendamos o uso do [TeX Live](https://www.tug.org/texlive/) ou [MikTeX](https://miktex.org/).
+
 2. Clone este repositório:
+
    ```bash
    git clone https://github.com/leonardofn/curriculo-latex.git
    ```
+
 3. Navegue até o diretório do projeto:
+
    ```bash
    cd curriculo-latex
    ```
+
 4. Compile o arquivo `main.tex` usando o comando:
+
    ```bash
    pdflatex main.tex
    ```
+
 5. O arquivo PDF gerado estará disponível no mesmo diretório.
 
 ## Personalização
