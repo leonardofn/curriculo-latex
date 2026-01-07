@@ -47,6 +47,9 @@
 
 % Permite converter datas em números sequenciais para cálculos.
 \usepackage{datenumber}
+
+% Lida com tabelas (tabular) e matrizes (array).
+\usepackage{array}
 % ----------------------------------------------
 
 % ------------------- METADADOS -------------------
@@ -142,7 +145,7 @@
 \newcommand{\resumeSectionType}[3]{%
   \item
   \begin{tabular*}{0.96\textwidth}[t]{%
-    p{0.165\linewidth}p{0.02\linewidth}p{0.82\linewidth}
+    p{0.165\linewidth} p{0.02\linewidth} >{\raggedright\arraybackslash}p{0.82\linewidth}
     }
     \textbf{#1} & #2 & #3
   \end{tabular*}\vspace{-2pt}
