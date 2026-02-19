@@ -24,17 +24,9 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 
 1. Certifique-se de ter o LaTeX instalado em sua máquina. Recomendamos o uso do [TeX Live](https://www.tug.org/texlive/) ou [MikTeX](https://miktex.org/).
 
-2. Clone este repositório:
+2. Clone ou baixe este repositório.
 
-   ```bash
-   git clone https://github.com/leonardofn/curriculo-latex.git
-   ```
-
-3. Navegue até o diretório do projeto:
-
-   ```bash
-   cd curriculo-latex
-   ```
+3. Navegue até o diretório do projeto.
 
 4. Compile o arquivo `main.tex` usando o comando:
 
