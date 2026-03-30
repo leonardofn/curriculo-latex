@@ -28,10 +28,17 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 
 3. Navegue até o diretório do projeto.
 
-4. Compile o arquivo `main.tex` usando o comando:
+4. Compile o arquivo `main.tex` usando um dos comandos abaixo:
 
    ```bash
-   pdflatex main.tex
+   latexmk -pdf main.tex
+   ```
+
+   Ou, se preferir usar `pdflatex`, execute duas passadas para estabilizar links e metadados do PDF:
+
+   ```bash
+   pdflatex -interaction=nonstopmode main.tex
+   pdflatex -interaction=nonstopmode main.tex
    ```
 
 5. O arquivo PDF gerado estará disponível no mesmo diretório.
