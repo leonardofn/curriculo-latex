@@ -153,14 +153,33 @@
   \end{tabular}\vspace{-2pt}
 }
 
+% Converte uma lista separada por vírgulas em itens separados por bullet.
+\ExplSyntaxOn
+\cs_new:Npn \resume_join_with_bullet:n #1
+  {
+    \clist_set:Nn \l_tmpa_clist { #1 }
+    \clist_use:Nn \l_tmpa_clist { \space\textbullet\space }
+  }
+\NewDocumentCommand{\resumeJoinWithBullet}{m}
+  { \resume_join_with_bullet:n { #1 } }
+\ExplSyntaxOff
+
+% Aplica separador com bullet quando a flag "bullet" ou "true" é informada.
+\newcommand{\resumeFormatTechList}[2]{%
+  \ifstrequal{#1}{bullet}{\resumeJoinWithBullet{#2}}{%
+    \ifstrequal{#1}{true}{\resumeJoinWithBullet{#2}}{#2}%
+  }%
+}
+
 % resumeTrioHeading: renderiza três elementos em três colunas (ex: projetos).
-\newcommand{\resumeTrioHeading}[3]{%
+% Uso: \resumeTrioHeading[bullet]{Titulo}{item1, item2, item3}{Link}
+\newcommand{\resumeTrioHeading}[4][]{%
   \item
   \small{%
     \begin{tabular*}{0.96\textwidth}[t]{%
       l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
       }
-      \textbf{#1} & \textit{#2} & #3
+      \textbf{#2} & \textit{\resumeFormatTechList{#1}{#3}} & #4
     \end{tabular*}
   }
 }
