@@ -86,6 +86,8 @@
 \renewcommand{\headrulewidth}{0in}
 % Remove a linha acima do rodapé.
 \renewcommand{\footrulewidth}{0in}
+% Evita avisos do fancyhdr sobre área insuficiente para rodapé.
+\setlength{\footskip}{12pt}
 
 % Remove o espaçamento entre colunas em tabelas.
 \setlength{\tabcolsep}{0in}
@@ -144,11 +146,11 @@
 % resumeSectionType: renderiza um tipo de seção em negrito (ex: habilidades).
 \newcommand{\resumeSectionType}[3]{%
   \item
-  \begin{tabular*}{0.96\textwidth}[t]{%
-    p{0.165\linewidth} p{0.02\linewidth} >{\raggedright\arraybackslash}p{0.82\linewidth}
+  \begin{tabular}[t]{%
+    p{0.165\linewidth} p{0.02\linewidth} >{\raggedright\arraybackslash}p{0.775\linewidth}
     }
     \textbf{#1} & #2 & #3
-  \end{tabular*}\vspace{-2pt}
+  \end{tabular}\vspace{-2pt}
 }
 
 % resumeTrioHeading: renderiza três elementos em três colunas (ex: projetos).
