@@ -23,26 +23,40 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 
 ## Como Usar
 
-1. Certifique-se de ter o LaTeX instalado em sua máquina. Recomendamos o uso do [TeX Live](https://www.tug.org/texlive/) ou [MikTeX](https://miktex.org/).
+Existem duas formas de compilar este projeto: utilizando Docker (método recomendado para evitar instalações locais) ou instalando o LaTeX manualmente.
 
-2. Clone ou baixe este repositório.
+### 🐳 Compilação com Docker (Recomendado)
 
-3. Navegue até o diretório do projeto.
+Este projeto utiliza Docker e um `Makefile` para automatizar a compilação, garantindo que todos os pacotes necessários estejam disponíveis independentemente do seu sistema operacional.
 
-4. Compile o arquivo `main.tex` usando um dos comandos abaixo:
-
+1. Certifique-se de ter o **Docker** instalado em sua máquina.
+2. No diretório do projeto, execute o comando:
    ```bash
-   latexmk -pdf main.tex
+   make build
+   ```
+   *Este comando utiliza a imagem `texlive/texlive:latest` e o `latexmk` para gerar o PDF final.*
+
+**Outros comandos úteis do `Makefile`:**
+- `make pdflatex`: Compilação rápida para testes de sintaxe.
+- `make clean`: Remove arquivos auxiliares, mantendo o PDF.
+- `make deep-clean`: Remove todos os arquivos gerados, incluindo o PDF.
+
+### 🛠️ Compilação Manual (Local)
+
+Se preferir não usar Docker, você precisará de uma distribuição LaTeX (como [TeX Live](https://www.tug.org/texlive/) ou [MikTeX](https://miktex.org/)) instalada:
+
+1. Clone ou baixe este repositório e navegue até o diretório do projeto.
+2. Compile o arquivo `main.tex` usando:
+   ```bash
+   latexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error main.tex
+   ```
+   Ou execute duas passadas de `pdflatex`:
+   ```bash
+   pdflatex -interaction=nonstopmode -synctex=1 -file-line-error main.tex
+   pdflatex -interaction=nonstopmode -synctex=1 -file-line-error main.tex
    ```
 
-   Ou, se preferir usar `pdflatex`, execute duas passadas para estabilizar links e metadados do PDF:
-
-   ```bash
-   pdflatex -interaction=nonstopmode main.tex
-   pdflatex -interaction=nonstopmode main.tex
-   ```
-
-5. O arquivo PDF gerado estará disponível no mesmo diretório.
+O arquivo PDF gerado estará disponível no mesmo diretório.
 
 ## Personalização
 
