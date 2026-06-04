@@ -56,5 +56,5 @@ Para mais detalhes sobre a execução, consulte o [README.md](./README.md).
 ## 🚀 Skills Especializadas
 
 Para tarefas complexas, consulte as instruções detalhadas nestas skills:
-- [Resume Updater](./skills/resume-updater.instructions.md): Guia para adicionar e modificar conteúdo mantendo a consistência visual.
-- [LaTeX Checker](./skills/latex-checker.instructions.md): Guia para validação sintática e prevenção de erros de compilação.
+- [Resume Updater](./prompts/resume-updater.instructions.md): Guia para adicionar e modificar conteúdo mantendo a consistência visual.
+- [LaTeX Checker](./prompts/latex-checker.instructions.md): Guia para validação sintática e prevenção de erros de compilação.
