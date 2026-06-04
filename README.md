@@ -5,7 +5,6 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 ## Estrutura do Projeto
 
 ```text
-├── main.tex                # Arquivo principal do documento
 ├── config/
 │   └── preamble.tex        # Configurações e pacotes utilizados
 ├── sections/
@@ -17,6 +16,8 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 │   ├── projects.tex        # Seção de projetos
 │   └── skills.tex          # Seção de habilidades
 ├── .gitignore              # Arquivo para ignorar arquivos desnecessários no Git
+├── Makefile                # Arquivo de configuração do Make para facilitar a compilação
+├── main.tex                # Arquivo principal do documento
 └── README.md               # Este arquivo
 ```
 
