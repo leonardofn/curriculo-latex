@@ -17,7 +17,7 @@
     }
   ],
   // Habilita a compilação automática ao salvar o arquivo
-  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.autoBuild.run": "onSave",
   // Configurações para melhorar o leitor de PDF embutido
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.synctex.afterBuild.enabled": true
