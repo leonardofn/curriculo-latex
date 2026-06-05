@@ -16,7 +16,7 @@
 \usepackage{titlesec}
 
 % Permite o uso de cores no texto e fundo.
-\usepackage{color}
+\usepackage{xcolor}
 
 % Oferece controle detalhado sobre a formatação de listas (enumerate, itemize, description).
 \usepackage{enumitem}
@@ -37,7 +37,12 @@
 \usepackage[empty]{fullpage}
 
 % Remove a formatação padrão de hiperlinks (cores e caixas).
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    urlcolor=blue!70!black
+}
 
 % Fornece o comando "\ul" para sublinhar texto sem quebrar linhas.
 \usepackage[normalem]{ulem}
@@ -50,6 +55,9 @@
 
 % Lida com tabelas (tabular) e matrizes (array).
 \usepackage{array}
+
+% Fornece ícones vetoriais de marcas (como GitHub, LinkedIn, Twitter), redes sociais e interfaces web
+\usepackage{fontawesome5}
 % ----------------------------------------------
 
 % ------------------- METADADOS -------------------
@@ -64,10 +72,10 @@
 % ----------------------------------------------
 
 % Converte nomes de glifos em Unicode para melhor compatibilidade com PDFs.
-% \input glyphtounicode
+\input glyphtounicode
 
 % Garante que os PDFs gerados sejam legíveis em sistemas de busca de texto.
-% \pdfgentounicode=1
+\pdfgentounicode=1
 
 % ----------------- OPÇÕES DE FONTE -----------------
 % Usa a fonte Source Sans Pro como padrão.
