@@ -7,6 +7,9 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 ```text
 ├── config/
 │   └── preamble.tex        # Configurações e pacotes utilizados
+├── prompts/
+│   └── resume-updater.instructions.md  # Instruções para atualizar o currículo
+│   └── latex-checker.instructions.md   # Instruções para checagem de LaTeX
 ├── sections/
 │   ├── certifications.tex  # Seção de certificações
 │   ├── contacts.tex        # Seção de contatos
