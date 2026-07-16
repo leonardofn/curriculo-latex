@@ -4,24 +4,24 @@ Este repositório contém o código-fonte de um currículo profissional desenvol
 
 ## Estrutura do Projeto
 
-```text
+```plain
 ├── config/
-│   └── preamble.tex        # Configurações e pacotes utilizados
+│   └── preamble.tex                    # Configurações e pacotes utilizados
 ├── prompts/
 │   └── resume-updater.instructions.md  # Instruções para atualizar o currículo
 │   └── latex-checker.instructions.md   # Instruções para checagem de LaTeX
 ├── sections/
-│   ├── certifications.tex  # Seção de certificações
-│   ├── contacts.tex        # Seção de contatos
-│   ├── education.tex       # Seção de educação
-│   ├── experience.tex      # Seção de experiência profissional
-│   ├── profile.tex         # Seção de perfil profissional
-│   ├── projects.tex        # Seção de projetos
-│   └── skills.tex          # Seção de habilidades
-├── .gitignore              # Arquivo para ignorar arquivos desnecessários no Git
-├── Makefile                # Arquivo de configuração do Make para facilitar a compilação
-├── main.tex                # Arquivo principal do documento
-└── README.md               # Este arquivo
+│   ├── certifications.tex              # Seção de certificações
+│   ├── contacts.tex                    # Seção de contatos
+│   ├── education.tex                   # Seção de educação
+│   ├── experience.tex                  # Seção de experiência profissional
+│   ├── profile.tex                     # Seção de perfil profissional
+│   ├── projects.tex                    # Seção de projetos
+│   └── skills.tex                      # Seção de habilidades
+├── .gitignore                          # Arquivo para ignorar arquivos desnecessários no Git
+├── Makefile                            # Arquivo de configuração do Make para facilitar a compilação
+├── main.tex                            # Arquivo principal do documento
+└── README.md                           # Este arquivo
 ```
 
 ## Como Usar
