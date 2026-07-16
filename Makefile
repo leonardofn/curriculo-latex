@@ -8,20 +8,47 @@ DOC = main
 # Imagem Docker oficial do LaTeX (contém todas as ferramentas necessárias)
 IMAGE = texlive/texlive:latest
 
+# Nome do container Docker usado para compilar o documento
+CONTAINER_NAME = texlive-builder
+
+# Comando Docker para criar o container se ele não existir
+# -v "$(CURDIR):/data"	: Mapeia a pasta atual do host para a pasta /data do container
+# -w /data         			: Define /data como o diretório de trabalho inicial
+# tail -f /dev/null			: Usado para manter o container em execução sem fazer nada
+DOCKER_CMD_CREATE = docker create --name $(CONTAINER_NAME) -v "$(CURDIR):/data" -w /data $(IMAGE) tail -f /dev/null
+
+# Comando Docker para iniciar o container se ele já existir
+DOCKER_CMD_START = docker start $(CONTAINER_NAME)
+
+# Comando Docker para executar comandos dentro do container em execução
+DOCKER_CMD_EXEC = docker exec -w /data $(CONTAINER_NAME)
+
+# Comando Docker para parar e remover o container
+DOCKER_CMD_STOP = docker rm -f $(CONTAINER_NAME)
+
 # Comando base do Docker executado nativamente no diretório atual
-# --rm             : Remove o container automaticamente após a execução
-# -v "$(CURDIR)...": Mapeia a pasta atual do host para a pasta /data do container
-# -w /data         : Define /data como o diretório de trabalho inicial
+# --rm             			: Remove o container automaticamente após a execução
+# -v "$(CURDIR):/data"	: Mapeia a pasta atual do host para a pasta /data do container
+# -w /data         			: Define /data como o diretório de trabalho inicial
 DOCKER_CMD = docker run --rm -v "$(CURDIR):/data" -w /data $(IMAGE)
 
 # ==============================================================================
 # ALVOS PHONY (Evitam conflitos com arquivos homônimos)
 # ==============================================================================
-.PHONY: all build pdflatex clean deep-clean help
+.PHONY: all prepare-container stop-container build pdflatex clean deep-clean help
 
 # ==============================================================================
 # REGRAS DE COMPILAÇÃO
 # ==============================================================================
+
+## prepare-container: Cria e inicia o container Docker de compilação
+prepare-container:
+	@docker inspect $(CONTAINER_NAME) >/dev/null 2>&1 || $(DOCKER_CMD_CREATE) >/dev/null
+	@$(DOCKER_CMD_START) >/dev/null
+
+## stop-container: Para e remove o container Docker de compilação
+stop-container:
+	@$(DOCKER_CMD_STOP) >/dev/null 2>&1 || true
 
 # Alvo padrão executado ao rodar apenas 'make'
 all: build
@@ -33,16 +60,16 @@ all: build
 # -synctex=1           			: Permite sincronização entre o PDF e o código fonte
 # -interaction=nonstopmode 	: Não para a execução em caso de erros simples
 # -file-line-error     			: Mostra os erros no formato arquivo:linha para fácil debug
-build: clean
+build: prepare-container clean
 	@echo "=> Compilando '$(DOC).tex' com latexmk via Docker..."
-	$(DOCKER_CMD) latexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error $(DOC).tex
+	$(DOCKER_CMD_EXEC) latexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error $(DOC).tex
 	@echo "=> Compilação concluída com sucesso!"
 
 ## pdflatex: Compila o documento com apenas uma passada rápida
 # Útil para checar a sintaxe rapidamente, sem atualizar índices ou bibliografias
-pdflatex: clean
+pdflatex: prepare-container clean
 	@echo "=> Compilando rápida com pdflatex via Docker..."
-	$(DOCKER_CMD) pdflatex -synctex=1 -interaction=nonstopmode $(DOC).tex
+	$(DOCKER_CMD_EXEC) pdflatex -synctex=1 -interaction=nonstopmode $(DOC).tex
 
 # ==============================================================================
 # REGRAS DE LIMPEZA
